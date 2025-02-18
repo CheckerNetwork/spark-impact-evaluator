@@ -54,7 +54,27 @@ Anvil's default mnemonic is:
 To deploy the contract on Anvil, run:
 
 ```bash
-forge create --rpc-url http://127.0.0.1:8545 --mnemonic "test test test test test test test test test test test junk" src/ImpactEvaluator.sol:ImpactEvaluator --constructor-args 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+forge create --rpc-url http://127.0.0.1:8545 --mnemonic "test test test test test test test test test test test junk" src/Spark.sol:Spark --constructor-args 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+```
+
+## Node.js API
+
+```js
+import * as SparkImpactEvaluator from '@filecoin-station/spark-impact-evaluator'
+
+console.log({
+  abi: SparkImpactEvaluator.ABI,
+  address: SparkImpactEvaluator.ADDRESS
+})
+```
+
+## Node.js CLI
+
+The CLI prints the current contract address.
+
+```console
+$ spark-impact-evaluator
+0x8460766edc62b525fc1fa4d628fc79229dc73031
 ```
 
 ## Deployment
@@ -82,13 +102,13 @@ export MNEMONIC_PATH="{path to mnemonic secret file}"
 To deploy using a private key, run:
 
 ```bash
-forge create --rpc-url $RPC_URL --private-key <your_private_key> src/ImpactEvaluator.sol:ImpactEvaluator --constructor-args $ADMIN_ADDRESS
+forge create --rpc-url $RPC_URL --private-key <your_private_key> src/Spark.sol:Spark --constructor-args $ADMIN_ADDRESS
 ```
 
 To deploy using a local mnemonic secret, run:
 
 ```bash
-forge create --rpc-url $RPC_URL --mnemonic $MNEMONIC_PATH src/ImpactEvaluator.sol:ImpactEvaluator --constructor-args $ADMIN_ADDRESS
+forge create --rpc-url $RPC_URL --mnemonic $MNEMONIC_PATH src/Spark.sol:Spark --constructor-args $ADMIN_ADDRESS
 ```
 
 ### Deployment Rust Script
@@ -111,6 +131,12 @@ To deploy, run:
 
 ```bash
 (cd contract-utils && cargo run)
+```
+
+## Publish Node.js module
+
+```console
+npm run release
 ```
 
 ## Tests

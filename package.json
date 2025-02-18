@@ -1,0 +1,27 @@
+{
+  "name": "@filecoin-station/spark-impact-evaluator",
+  "license": "(Apache-2.0 AND MIT)",
+  "version": "1.2.4",
+  "repository": "filecoin-station/spark-impact-evaluator",
+  "type": "module",
+  "types": "index.d.ts",
+  "main": "index.js",
+  "scripts": {
+    "release": "np",
+    "test": "echo No tests"
+  },
+  "bin": "bin.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "Abi.json",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "devDependencies": {
+    "np": "^10.1.0"
+  }
+}

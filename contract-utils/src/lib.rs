@@ -1,6 +1,6 @@
-pub mod impact_evaluator {
+pub mod spark {
 
-    use contract_bindings::impact_evaluator::ImpactEvaluator;
+    use contract_bindings::spark::Spark;
     use ethers::{
         providers::{Http, Middleware, Provider},
         types::H160,
@@ -28,12 +28,12 @@ pub mod impact_evaluator {
         println!("current gas price: {:#?}", gas_price);
         println!("using {} retries", retries);
 
-        let mut contract = ImpactEvaluator::deploy(client.clone(), address)?;
+        let mut contract = Spark::deploy(client.clone(), address)?;
         let tx = contract.deployer.tx.clone();
         set_tx_gas(
             &mut contract.deployer.tx,
             client.estimate_gas(&tx, None).await?,
-            gas_price,
+            gas_price * 2,
         );
 
         println!(
